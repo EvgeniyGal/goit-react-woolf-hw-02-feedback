@@ -1,15 +1,11 @@
 import { Component } from 'react';
-import FeedbackOptions from './FeedbackOptions';
-import Section from './Section';
-import Statistics from './Statistics';
-import Notification from './Notification';
+import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
+import Section from './Section/Section';
+import Statistics from './Statistics/Statistics';
+import Notification from './Notification/Notification';
 
 export default class App extends Component {
   state = { good: 0, neutral: 0, bad: 0 };
-
-  hasFeedback = () => {
-    return !!(this.state.good + this.state.bad + this.state.neutral);
-  };
 
   handleAddFeedback = feedback => {
     this.setState(prevState => {
@@ -33,7 +29,7 @@ export default class App extends Component {
           options={Object.keys(this.state)}
           onLeaveFeedback={this.handleAddFeedback}
         />
-        {this.hasFeedback() ? (
+        {this.countTotalFeedback() ? (
           <Statistics
             good={this.state.good}
             neutral={this.state.neutral}

@@ -1,4 +1,3 @@
-import { Component } from 'react';
 import styled from 'styled-components';
 
 const StyledSection = styled.section`
@@ -19,14 +18,4 @@ const StyledSection = styled.section`
   background-size: var(--s) var(--s);
 `;
 
-export default class Section extends Component {
-  render() {
-    const { title, children } = this.props;
-    return (
-      <StyledSection>
-        <h1>{title}</h1>
-        {children}
-      </StyledSection>
-    );
-  }
-}
+export default StyledSection;
